@@ -9,6 +9,7 @@ namespace BlazorCRUD.Data
             
         }
 
+        public DbSet<GameModel> Games { get; set; }
 
     }
 }
