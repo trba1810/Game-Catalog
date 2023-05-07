@@ -1,4 +1,5 @@
 using BlazorCRUD.Data;
+using BlazorCRUD.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("AppConnectionS
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-
+builder.Services.AddTransient<GameCatalogService>();
 builder.Services.AddDbContextFactory<AppDbContext>((DbContextOptionsBuilder options) => options.UseSqlServer(connectionString));
 var app = builder.Build();
 
