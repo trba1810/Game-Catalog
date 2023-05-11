@@ -31,5 +31,24 @@ namespace BlazorCRUD.Services
                 return context.Games.ToList();
             }
         }
+
+        public GameModel GetGameById(int id)
+        {
+            using(var context = _dbContextFactory.CreateDbContext())
+            {
+                return context.Games.SingleOrDefault(x => x.Id == id);
+
+            }
+        }
+
+        public void Update(GameModel game)
+        {
+
+            using (var context = _dbContextFactory.CreateDbContext())
+            {
+                context.Games.Update(game);
+                context.SaveChanges();
+            }
+        }
     }
 }

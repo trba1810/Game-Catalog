@@ -1,0 +1,30 @@
+﻿@page "/update"
+@using BlazorCRUD.Services;
+@using BlazorCRUD.Data;
+@inject GameCatalogService gameCatalogService;
+
+<h3>Update</h3>
+
+<EditForm Model="@game" OnValidSubmit="HandleSubmit" >
+    <lalbel for="NameInput">Name</lalbel>
+    <InputText placeholder="@game.Name" id="NameInput" @bind-Value=@game.Name ></InputText>
+    <lalbel for="GenreInput">Genre</lalbel>
+    <InputText id="GenreInput" @bind-Value=@game.Genre></InputText>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</EditForm>
+
+
+@code {
+    GameModel game = new GameModel();
+
+    
+
+    public void HandleSubmit(EditContext editContext)
+    {
+        var newGame = (GameModel)editContext.Model;
+        newGame.ReleaseDate = DateTime.Now;
+        gameCatalogService.Update(newGame);
+    }
+
+}
