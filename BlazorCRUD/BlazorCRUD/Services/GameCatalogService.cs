@@ -50,5 +50,16 @@ namespace BlazorCRUD.Services
                 context.SaveChanges();
             }
         }
+
+        public void Delete(int id)
+        {
+            var game = GetGameById(id);
+            using (var context = _dbContextFactory.CreateDbContext())
+            {
+                context.Games.Remove(game);
+                context.SaveChanges();
+                
+            }
+        }
     }
 }

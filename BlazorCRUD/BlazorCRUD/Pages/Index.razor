@@ -24,22 +24,29 @@
         @foreach (var g in games)
         {
             <tr>
+                <td hidden="@g.Id"></td>
                 <td>@g.Name</td>
                 <td>@g.Genre</td>
                 <td>@g.ReleaseDate</td>
-                <td><button class="btn btn-warning" value="@g.Id" @onclick='() => Navigation.NavigateTo("Update")'>Update</button></td>
-                <td><button class="btn btn-danger" value="@g.Id">Delete</button></td>
+                <td><button class="btn btn-warning"  >Update</button></td>
+                <td><button class="btn btn-danger" @onclick="() => DeleteGame(g.Id)">Delete</button></td>
             </tr>
         }
     </tbody>
 </table>
 
 @code {
+
     private List<GameModel> games;
 
     protected override void OnInitialized() => games = gameCatalogService.GetGames();
 
-    
+    public void DeleteGame(int id)
+    {
+        var game = gameCatalogService.GetGameById(id);
+        gameCatalogService.Delete(game.Id);
+        Navigation.NavigateTo("/", true);
+    }
 
 }
 
