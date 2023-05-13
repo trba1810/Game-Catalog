@@ -24,11 +24,10 @@
         @foreach (var g in games)
         {
             <tr>
-                <td hidden="@g.Id"></td>
                 <td>@g.Name</td>
                 <td>@g.Genre</td>
                 <td>@g.ReleaseDate</td>
-                <td><button class="btn btn-warning"  >Update</button></td>
+                <td><a href="/Update/@g.Id" class="btn btn-warning">Update</a></td>
                 <td><button class="btn btn-danger" @onclick="() => DeleteGame(g.Id)">Delete</button></td>
             </tr>
         }
