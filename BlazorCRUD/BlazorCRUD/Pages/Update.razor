@@ -1,8 +1,19 @@
 ﻿@page "/update/{Id:int}"
+@using BlazorCRUD.Data
+@using BlazorCRUD.Services
+@inject GameCatalogService gameCatalogService;
 
 <h3>Update</h3>
 <h4>@Id</h4>
+<h5>@game</h5>
 
 @code {
     [Parameter] public int Id { get; set; }
+    private GameModel game;
+
+    protected override void OnInitialized()
+    {
+        game = gameCatalogService.GetGameById(Id);
+    }
+
 }
