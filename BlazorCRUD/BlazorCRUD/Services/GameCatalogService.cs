@@ -36,8 +36,8 @@ namespace BlazorCRUD.Services
         {
             using(var context = _dbContextFactory.CreateDbContext())
             {
-                return context.Games.SingleOrDefault(x => x.Id == id);
-
+                var game = context.Games.SingleOrDefault(x => x.Id == id);
+                return game;
             }
         }
 

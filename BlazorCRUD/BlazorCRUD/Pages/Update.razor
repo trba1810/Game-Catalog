@@ -5,7 +5,16 @@
 
 <h3>Update</h3>
 <h4>@Id</h4>
-<h5>@game</h5>
+
+<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+    <lalbel for="NameInput">Name</lalbel>
+    <InputText id="NameInput" @bind-Value=@game.Name></InputText>
+    <lalbel for="GenreInput">Genre</lalbel>
+    <InputText id="GenreInput" @bind-Value=@game.Genre></InputText>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+</EditForm>
+
 
 @code {
     [Parameter] public int Id { get; set; }
@@ -16,4 +25,10 @@
         game = gameCatalogService.GetGameById(Id);
     }
 
+    public void HandleSubmit(EditContext editContext)
+    {
+        var newGame = (GameModel)editContext.Model;
+        newGame.ReleaseDate = DateTime.Now;
+        gameCatalogService.Update(newGame);
+    }
 }
