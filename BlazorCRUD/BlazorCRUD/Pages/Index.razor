@@ -6,33 +6,8 @@
 
 <PageTitle>Index</PageTitle>
 
+<MudButton Variant="Variant.Filled" @onclick='() => Navigation.NavigateTo("Create")' EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary">Create</MudButton>
 
-
-<button class="btn btn-primary" @onclick='() => Navigation.NavigateTo("Create")'>Create</button>
-
-
-
-@* <table class="table table-dark table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>Release Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var g in games)
-        {
-            <tr>
-                <td>@g.Name</td>
-                <td>@g.Genre</td>
-                <td>@g.ReleaseDate</td>
-                <td><a href="/Update/@g.Id" class="btn btn-warning">Update</a></td>
-                <td><button class="btn btn-danger" @onclick="() => DeleteGame(g.Id)">Delete</button></td>
-            </tr>
-        }
-    </tbody>
-</table> *@
 
 <MudTable Items="@Games" Hover="true" Breakpoint="Breakpoint.Sm">
     <HeaderContent>
