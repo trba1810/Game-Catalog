@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using MudBlazor.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AppConnectionString") ?? throw new NullReferenceException("No connection string");
@@ -13,6 +15,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<GameCatalogService>();
 builder.Services.AddDbContextFactory<AppDbContext>((DbContextOptionsBuilder options) => options.UseSqlServer(connectionString));
+builder.Services.AddMudServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
