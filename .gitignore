@@ -20,6 +20,8 @@ obj/
 bin
 obj
 .vs
+BlazorCRUD/obj
+BlazorCRUD/bin
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

@@ -12,7 +12,7 @@
 
 
 
-<table class="table table-dark table-striped">
+@* <table class="table table-dark table-striped">
     <thead>
         <tr>
             <th>Name</th>
@@ -32,13 +32,28 @@
             </tr>
         }
     </tbody>
-</table>
+</table> *@
+
+<MudTable Items="@Games" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Genre</MudTh>
+        <MudTh>Release Date</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel ="Genre">@context.Genre</MudTd>
+        <MudTd DataLabel ="ReleaseDate">@context.ReleaseDate</MudTd>
+    </RowTemplate>
+</MudTable>
+
+
 
 @code {
+    private IEnumerable<GameModel> Games = new List<GameModel>();
 
-    private List<GameModel> games;
 
-    protected override void OnInitialized() => games = gameCatalogService.GetGames();
+    protected override void OnInitialized() => Games = gameCatalogService.GetGames();
 
     public void DeleteGame(int id)
     {
