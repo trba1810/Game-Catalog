@@ -7,6 +7,9 @@
 bin/
 obj/
 .vs/
+/.vs
+/bin
+/obj
 
 # User-specific files
 *.rsuser
