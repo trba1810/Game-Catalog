@@ -2,11 +2,12 @@
 @using BlazorCRUD.Data
 @using BlazorCRUD.Services
 @inject GameCatalogService gameCatalogService;
+@using System.ComponentModel.DataAnnotations
 
 <h3>Update</h3>
 <h4>@Id</h4>
 
-<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+@* <EditForm Model="@game" OnValidSubmit="HandleSubmit">
     <lalbel for="NameInput">Name</lalbel>
     <InputText id="NameInput" @bind-Value=@game.Name></InputText>
     <lalbel for="GenreInput">Genre</lalbel>
@@ -14,7 +15,25 @@
 
     <button type="submit" class="btn btn-primary">Update</button>
 </EditForm>
+ *@
 
+<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+    <MudGrid>
+        <MudItem xs="12" sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="First name" HelperText="Max. 8 characters"
+                    @bind-Value="game.Name" For="@(() => game.Name)" />
+                    <MudTextField Label="Email" Class="mt-3"
+                    @bind-Value="game.Genre" For="@(() => game.Genre)" />
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Update</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
 
 @code {
     [Parameter] public int Id { get; set; }
