@@ -6,19 +6,19 @@
 
 <PageTitle>Index</PageTitle>
 
-<MudButton Variant="Variant.Filled" @onclick='() => Navigation.NavigateTo("Create")' EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary">Create</MudButton>
+<MudButton Variant="Variant.Filled" @onclick='() => Navigation.NavigateTo("Create")' EndIcon="@Icons.Material.Filled.PlusOne" Class="mt-2"
+    Style="@($"color:{Colors.LightGreen.Accent3}; background:{Colors.BlueGrey.Darken4};")">Create</MudButton>
 
-
-<MudTable Items="@Games" Hover="true" Breakpoint="Breakpoint.Sm">
-    <HeaderContent>
-        <MudTh>Name</MudTh>
-        <MudTh>Genre</MudTh>
-        <MudTh>Release Date</MudTh>
+<MudTable class="mud-theme-dark mt-2 mx-auto" Style="width: 75%"  Items="@Games" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent  >
+        <MudTh Class="pa-4 mud-secondary-text">Name</MudTh>
+        <MudTh Class="pa-4 mud-secondary-text">Genre</MudTh>
+        <MudTh Class="pa-4 mud-secondary-text">Release Date</MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
-        <MudTd DataLabel ="Genre">@context.Genre</MudTd>
-        <MudTd DataLabel ="ReleaseDate">@context.ReleaseDate</MudTd>
+        <MudTd DataLabel="Name" Class="pa-4 mud-warning" Cyan>@context.Name</MudTd>
+        <MudTd DataLabel="Genre" Class="pa-4 mud-tertiary">@context.Genre</MudTd>
+        <MudTd DataLabel="ReleaseDate" Class="pa-4 mud-info">@context.ReleaseDate</MudTd>
     </RowTemplate>
 </MudTable>
 
