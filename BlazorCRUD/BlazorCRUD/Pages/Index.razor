@@ -6,39 +6,29 @@
 
 <PageTitle>Index</PageTitle>
 
+<MudButton Variant="Variant.Filled" @onclick='() => Navigation.NavigateTo("Create")' EndIcon="@Icons.Material.Filled.PlusOne" Class="mt-2"
+    Style="@($"color:{Colors.LightGreen.Accent3}; background:{Colors.BlueGrey.Darken4};")">Create</MudButton>
+
+<MudTable class="mud-theme-dark mt-2 mx-auto" Style="width: 75%"  Items="@Games" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent  >
+        <MudTh Class="pa-4 mud-secondary-text">Name</MudTh>
+        <MudTh Class="pa-4 mud-secondary-text">Genre</MudTh>
+        <MudTh Class="pa-4 mud-secondary-text">Release Date</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name" Class="pa-4 mud-warning" Cyan>@context.Name</MudTd>
+        <MudTd DataLabel="Genre" Class="pa-4 mud-tertiary">@context.Genre</MudTd>
+        <MudTd DataLabel="ReleaseDate" Class="pa-4 mud-info">@context.ReleaseDate</MudTd>
+    </RowTemplate>
+</MudTable>
 
 
-<button class="btn btn-primary" @onclick='() => Navigation.NavigateTo("Create")'>Create</button>
-
-
-
-<table class="table table-dark table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>Release Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var g in games)
-        {
-            <tr>
-                <td>@g.Name</td>
-                <td>@g.Genre</td>
-                <td>@g.ReleaseDate</td>
-                <td><a href="/Update/@g.Id" class="btn btn-warning">Update</a></td>
-                <td><button class="btn btn-danger" @onclick="() => DeleteGame(g.Id)">Delete</button></td>
-            </tr>
-        }
-    </tbody>
-</table>
 
 @code {
+    private IEnumerable<GameModel> Games = new List<GameModel>();
 
-    private List<GameModel> games;
 
-    protected override void OnInitialized() => games = gameCatalogService.GetGames();
+    protected override void OnInitialized() => Games = gameCatalogService.GetGames();
 
     public void DeleteGame(int id)
     {

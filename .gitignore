@@ -7,6 +7,9 @@
 bin/
 obj/
 .vs/
+/.vs
+/bin
+/obj
 
 # User-specific files
 *.rsuser
@@ -14,6 +17,11 @@ obj/
 *.user
 *.userosscache
 *.sln.docstates
+bin
+obj
+.vs
+BlazorCRUD/obj
+BlazorCRUD/bin
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
