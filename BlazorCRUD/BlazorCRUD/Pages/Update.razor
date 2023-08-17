@@ -7,15 +7,6 @@
 <h3>Update</h3>
 <h4>@Id</h4>
 
-@* <EditForm Model="@game" OnValidSubmit="HandleSubmit">
-    <lalbel for="NameInput">Name</lalbel>
-    <InputText id="NameInput" @bind-Value=@game.Name></InputText>
-    <lalbel for="GenreInput">Genre</lalbel>
-    <InputText id="GenreInput" @bind-Value=@game.Genre></InputText>
-
-    <button type="submit" class="btn btn-primary">Update</button>
-</EditForm>
- *@
 
 <EditForm Model="@game" OnValidSubmit="HandleSubmit">
     <MudGrid>
