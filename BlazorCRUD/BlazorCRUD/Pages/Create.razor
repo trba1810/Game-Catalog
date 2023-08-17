@@ -4,49 +4,25 @@
 @inject GameCatalogService gameCatalogService;
 @inject NavigationManager Navigation;
 
-<h3>Create</h3>
 
-@* <EditForm Model="@game" OnValidSubmit="HandleSubmit">
-    <lalbel for="NameInput">Name</lalbel>
-    <InputText id="NameInput" @bind-Value=@game.Name></InputText>
-    <lalbel for="GenreInput">Genre</lalbel>
-    <InputText id="GenreInput" @bind-Value=@game.Genre></InputText>
-    
-    <button type="submit" class="btn btn-primary">Create</button>
-</EditForm> *@
 
-@* <EditForm Model="@game" OnValidSubmit="HandleSubmit">
-    <MudGrid>
-        <MudItem xs="12" sm="7">
-            <MudCard>
-                <MudCardContent>
-                    <MudTextField Label="Name" HelperText="Max. 8 characters"
+<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+    <MudGrid >
+        <MudItem  Class="d-flex align-center justify-center mud-width-full py-8">
+            <MudCard Style="@($"color:{Colors.LightGreen.Accent3}; background:{Colors.Amber.Lighten2};")" Outlined="true">
+                <MudCardContent >
+                    <MudTextField Label="Name"
                     @bind-Value="game.Name" For="@(() => game.Name)" />
-                    <MudTextField Label="Email" Class="mt-3"
+                    <MudTextField Label="Genre" Class="mt-3"
                     @bind-Value="game.Genre" For="@(() => game.Genre)" />
+                    
                 </MudCardContent>
                 <MudCardActions>
-                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Update</MudButton>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
     </MudGrid>
-</EditForm> *@
-
-<EditForm Model="@game" OnValidSubmit="HandleSubmit">
-<MudGrid>
-    <MudItem xs="12" sm="7">
-        <MudPaper Class="pa-4">
-            <MudForm @ref="form" @bind-Errors="@errors">
-                <MudTextField T="string" Label="Name" Required="true" RequiredError="Name is required!" />
-                <MudTextField T="string" Label="Genre" Required="true" RequiredError="Genre is required!" />
-                <div class="d-flex align-center justify-space-between">
-                        <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" Class="ml-auto">Create</MudButton>
-                </div>
-            </MudForm>
-        </MudPaper>       
-    </MudItem>
-</MudGrid>
 </EditForm>
 
 
