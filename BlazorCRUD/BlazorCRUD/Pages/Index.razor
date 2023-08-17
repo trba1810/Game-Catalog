@@ -16,11 +16,16 @@
         <MudTh Class="pa-4 mud-secondary-text">Name</MudTh>
         <MudTh Class="pa-4 mud-secondary-text">Genre</MudTh>
         <MudTh Class="pa-4 mud-secondary-text">Release Date</MudTh>
+        <MudTh></MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="Name" Class="pa-4 mud-warning" Cyan>@context.Name</MudTd>
+        <MudTd DataLabel="Name" Class="pa-4 mud-success " Cyan>@context.Name</MudTd>
         <MudTd DataLabel="Genre" Class="pa-4 mud-tertiary">@context.Genre</MudTd>
         <MudTd DataLabel="ReleaseDate" Class="pa-4 mud-info">@context.ReleaseDate</MudTd>
+        <MudTd Style="width:175px">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.ModeEdit" Color="Color.Warning"></MudButton>
+            <MudButton Class="w-50" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Delete" OnClick="@(()=>DeleteGame(context.Id))" Color="Color.Error"></MudButton>
+        </MudTd>
     </RowTemplate>
 </MudTable>
 
