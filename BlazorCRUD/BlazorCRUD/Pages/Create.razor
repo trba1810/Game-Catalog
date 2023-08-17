@@ -15,7 +15,7 @@
     <button type="submit" class="btn btn-primary">Create</button>
 </EditForm> *@
 
-<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+@* <EditForm Model="@game" OnValidSubmit="HandleSubmit">
     <MudGrid>
         <MudItem xs="12" sm="7">
             <MudCard>
@@ -31,11 +31,30 @@
             </MudCard>
         </MudItem>
     </MudGrid>
+</EditForm> *@
+
+<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+<MudGrid>
+    <MudItem xs="12" sm="7">
+        <MudPaper Class="pa-4">
+            <MudForm @ref="form" @bind-Errors="@errors">
+                <MudTextField T="string" Label="Name" Required="true" RequiredError="Name is required!" />
+                <MudTextField T="string" Label="Genre" Required="true" RequiredError="Genre is required!" />
+                <div class="d-flex align-center justify-space-between">
+                        <MudButton Variant="Variant.Filled" ButtonType="ButtonType.Submit" Color="Color.Primary" Class="ml-auto">Create</MudButton>
+                </div>
+            </MudForm>
+        </MudPaper>       
+    </MudItem>
+</MudGrid>
 </EditForm>
 
 
 @code {
     GameModel game = new GameModel();
+
+    string[] errors = { };
+    MudForm form;
 
     public void HandleSubmit(EditContext editContext)
     {

@@ -7,8 +7,8 @@
 <PageTitle>Index</PageTitle>
 
 <MudGrid Class="justify-center mt-4 mb-4">
-<MudButton Class="mt-2" Variant="Variant.Filled" @onclick='() => Navigation.NavigateTo("Create")' EndIcon="@Icons.Material.Filled.PlusOne"
-           Style="@($"color:{Colors.LightGreen.Accent3}; background:{Colors.BlueGrey.Darken4};")">Create</MudButton>
+            <MudButton Variant="Variant.Filled" @onclick='() => Navigation.NavigateTo("Create")' EndIcon="@Icons.Material.Filled.PlusOne"
+            Style="@($"color:{Colors.LightGreen.Accent3}; background:{Colors.BlueGrey.Darken4};")">Create</MudButton>
 </MudGrid>
 
 <MudTable class="mud-theme-dark mt-2 mx-auto" Style="width: 75%" Items="@Games" Hover="true" Breakpoint="Breakpoint.Sm">
