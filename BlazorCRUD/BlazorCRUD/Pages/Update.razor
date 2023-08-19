@@ -8,7 +8,7 @@
 <h4>@Id</h4>
 
 
-<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+@* <EditForm Model="@game" OnValidSubmit="HandleSubmit">
     <MudGrid>
         <MudItem xs="12" sm="7">
             <MudCard>
@@ -20,6 +20,25 @@
                 </MudCardContent>
                 <MudCardActions>
                     <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Update</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm> *@
+
+<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+    <MudGrid>
+        <MudItem Class="d-flex align-center justify-center mud-width-full py-8">
+            <MudCard Style="@($"color:{Colors.LightGreen.Accent3}; background:{Colors.Amber.Lighten2};")" Outlined="true">
+                <MudCardContent>
+                    <MudTextField Label="Name"
+                    @bind-Value="game.Name" For="@(() => game.Name)" />
+                    <MudTextField Label="Genre" Class="mt-3"
+                    @bind-Value="game.Genre" For="@(() => game.Genre)" />
+
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
                 </MudCardActions>
             </MudCard>
         </MudItem>
