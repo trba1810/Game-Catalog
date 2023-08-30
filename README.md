@@ -1,2 +1,3 @@
-# BlazorCRUD
-My first try at blazor server,used this simple crud app to learn how to use EF Core with Blazor.
+# Blazor Game Catalog
+This is Blazor server application in which i showcase use of EF Core,SQL DB,MudBlazor
+ You can check this online on this page : https://blazorgamecatalog.azurewebsites.net/
