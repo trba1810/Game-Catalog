@@ -25,6 +25,7 @@
         <MudTd Style="width:175px">
             <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.ModeEdit" Href="@($"Update/{context.Id}")" Color="Color.Warning"></MudButton>
             <MudButton Class="w-50" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Delete" OnClick="@(()=>DeleteGame(context.Id))" Color="Color.Error"></MudButton>
+            
         </MudTd>
     </RowTemplate>
 </MudTable>

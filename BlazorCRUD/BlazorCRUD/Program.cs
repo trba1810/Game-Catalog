@@ -16,6 +16,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<GameCatalogService>();
 builder.Services.AddDbContextFactory<AppDbContext>((DbContextOptionsBuilder options) => options.UseSqlServer(connectionString));
 builder.Services.AddMudServices();
+builder.Services.AddLocalization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +32,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseRequestLocalization("en-GB");
 
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
